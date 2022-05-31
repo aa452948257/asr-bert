@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn" style="height: 100%;">
+<head>
+    <title>多意图指令交互展示</title>
+    <meta charset="UTF-8">
+</head>
+<body style="background-image:url(../static/img/bupt-bg.jpg); background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;height: 100%;">
+
+<div id="result" align="center" style="background: rgba(255,255,255,0.92);width: 100%;height: 100%;">
+<h1 align="center"><span style="color: #ff7e00">自然语言协议的性能演示 </span><br>
+    <span style="font-size: 15px;color: black; font-weight: lighter;"></span></h1>
+    <table style="height: 450px">
+        {% for key, value in result.items() %}
+            <tr>
+                <td><font size="5" color="red" style="font-weight: bolder"> 传输后的误码指令:</font></td>
+                <td> <font size="5" color="black" style="font-weight: bolder">{{ key }}</font></td>
+
+            </tr>
+            <tr>
+                <td><font size="5" color="blue" style="font-weight: bolder"> 识别到的指令意图:</font></td>
+                <td> <font size="5" color="black" style="font-weight: bolder">{{ value[0] }}</font></td>
+            </tr>
+            <tr>
+                <td><font size="5" color="red" style="font-weight: bolder"> 自然语言协议的平均准确率:</font></td>
+                <td> <font size="5" color="black" style="font-weight: bolder">{{ value[1] }}</font></td>
+            </tr>
+            <tr>
+                <td><font size="5" color="blue" style="font-weight: bolder"> 传统协议的平均准确率:</font></td>
+                <td> <font size="5" color="black" style="font-weight: bolder">{{ value[4] }}</font></td>
+            </tr>
+            <tr>
+                <td><font size="5" color="red" style="font-weight: bolder"> 自然语言协议的平均传输时间:</font></td>
+                <td> <font size="5" color="black" style="font-weight: bolder">{{ value[3] }}</font> <font size="5" color="black" style="font-weight: bolder">秒</font></td>
+            </tr>
+            <tr>
+                <td><font size="5" color="blue" style="font-weight: bolder"> 传统协议的平均传输时间:</font></td>
+                <td> <font size="5" color="black" style="font-weight: bolder">{{ value[2] }} </font><font size="5" color="black" style="font-weight: bolder">秒</font></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
